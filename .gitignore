@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+# raw PhysioNet EDF files (download with A_download_physionet_eeg.py)
+data/physionet_eegmmidb/
+data/*.csv
+# large generated datasets (regenerate with the scripts; >100 MB, over GitHub's file limit)
+Outputs/*/*_Synthetic_EEG_*_Identities.csv
+Outputs/*/*_Synthetic_EEG_*_Identities.npz

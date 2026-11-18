@@ -1,0 +1,36 @@
+Excluding subjects with < 10 clean windows in a state: [22, 96]
+
+=== Copula | PhysioNet EEGMMIDB | 320 features | 75 train subjects (8600 windows), 32 unseen test subjects ===
+Identity model: 32-dim codes explain 96.9% of between-person prototype variance
+  [Copula] state 0: fitted 352-dim Gaussian copula on 4148 windows
+  [Copula] state 1: fitted 352-dim Gaussian copula on 4452 windows
+Generated 100000 windows = 2500 identities x 2 states x 20 (fit 2s, sampling 9s)
+Saved /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/Copula/Copula_Synthetic_EEG_2500_Identities.csv
+
+Evaluating ...
+
+========================================================================
+ Copula - results
+========================================================================
+ Biometric quality (closed set; LDA on 1st half of each recording, enrol/probe on 2nd half)
+   real train subjects        n=   75  EER   0.37%  rank-1  99.63%
+   synthetic (same #ids)      n=   75  EER   0.13%  rank-1 100.00%
+   synthetic (all ids)        n= 2500  EER   0.19%  rank-1  99.98%
+ Utility on 32 UNSEEN real subjects (LDA embedding trained on ...)
+   real_train       EER   1.14% rank-1  99.29% | cross-state EO->EC: EER   1.75% rank-1  98.31%
+   synthetic_only   EER   1.56% rank-1  99.18% | cross-state EO->EC: EER   2.34% rank-1  97.99%
+   real+synthetic   EER   1.44% rank-1  99.24% | cross-state EO->EC: EER   2.14% rank-1  97.78%
+ Fidelity
+   discriminator AUC real-vs-syn 0.506 (0.5 = indistinguishable)
+   Frechet dist syn 0.89 | unseen-real-people reference 12.07
+   MSE means 0.0010 | MSE correlations 0.0002 | std ratio 1.002
+   between-person variance share real 0.713 | syn 0.702
+ Eyes-open vs eyes-closed XGBoost (tested on unseen real subjects)
+   real  76.01% | synthetic  78.95% | combined  79.27%
+   SHAP top-10 feature similarity 60%
+ Privacy
+   median NN distance to a real person = 0.99 x real-real median
+   synthetic ids closer than the closest real pair:   0.00%
+   re-identified as a real training subject:         0.00%
+
+Total runtime: 267 s.  Outputs in /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/Copula

@@ -1,0 +1,45 @@
+Excluding subjects with < 10 clean windows in a state: [22, 96]
+
+=== LSTM | PhysioNet EEGMMIDB | 320 features | 75 train subjects (8600 windows), 32 unseen test subjects ===
+Identity model: 32-dim codes explain 96.9% of between-person prototype variance
+  [LSTM] epoch    1/30  rec=0.7890 kl=5.5763  (20s)
+  [LSTM] epoch    3/30  rec=0.5607 kl=12.2968  (112s)
+  [LSTM] epoch    6/30  rec=0.5073 kl=10.5444  (292s)
+  [LSTM] epoch    9/30  rec=0.4922 kl=9.4395  (439s)
+  [LSTM] epoch   12/30  rec=0.4858 kl=9.3897  (638s)
+  [LSTM] epoch   15/30  rec=0.4804 kl=9.3731  (797s)
+  [LSTM] epoch   18/30  rec=0.4750 kl=9.4422  (984s)
+  [LSTM] epoch   21/30  rec=0.4704 kl=9.4236  (1169s)
+  [LSTM] epoch   24/30  rec=0.4664 kl=9.4998  (1356s)
+  [LSTM] epoch   27/30  rec=0.4635 kl=9.4887  (1539s)
+  [LSTM] epoch   30/30  rec=0.4589 kl=9.5056  (1678s)
+Generated 100000 windows = 2500 identities x 2 states x 20 (fit 1697s, sampling 116s)
+Saved /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/LSTM/LSTM_Synthetic_EEG_2500_Identities.csv
+
+Evaluating ...
+
+========================================================================
+ LSTM - results
+========================================================================
+ Biometric quality (closed set; LDA on 1st half of each recording, enrol/probe on 2nd half)
+   real train subjects        n=   75  EER   0.37%  rank-1  99.63%
+   synthetic (same #ids)      n=   75  EER   0.00%  rank-1 100.00%
+   synthetic (all ids)        n= 2500  EER   0.12%  rank-1 100.00%
+ Utility on 32 UNSEEN real subjects (LDA embedding trained on ...)
+   real_train       EER   1.14% rank-1  99.29% | cross-state EO->EC: EER   1.75% rank-1  98.31%
+   synthetic_only   EER   1.86% rank-1  98.48% | cross-state EO->EC: EER   3.18% rank-1  96.04%
+   real+synthetic   EER   1.73% rank-1  98.53% | cross-state EO->EC: EER   2.69% rank-1  96.57%
+ Fidelity
+   discriminator AUC real-vs-syn 0.535 (0.5 = indistinguishable)
+   Frechet dist syn 3.22 | unseen-real-people reference 12.07
+   MSE means 0.0012 | MSE correlations 0.0003 | std ratio 0.977
+   between-person variance share real 0.713 | syn 0.729
+ Eyes-open vs eyes-closed XGBoost (tested on unseen real subjects)
+   real  76.01% | synthetic  78.70% | combined  79.03%
+   SHAP top-10 feature similarity 60%
+ Privacy
+   median NN distance to a real person = 0.99 x real-real median
+   synthetic ids closer than the closest real pair:   0.00%
+   re-identified as a real training subject:         0.00%
+
+Total runtime: 2374 s.  Outputs in /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/LSTM

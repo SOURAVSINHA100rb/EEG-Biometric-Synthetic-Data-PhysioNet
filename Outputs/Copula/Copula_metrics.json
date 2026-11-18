@@ -1,0 +1,93 @@
+{
+  "closed_set_real": {
+    "eer": 0.003740743085005404,
+    "rank1": 0.9962529274004683,
+    "n_ids": 75
+  },
+  "closed_set_synthetic_same_size": {
+    "eer": 0.0012612612612612434,
+    "rank1": 1.0,
+    "n_ids": 75
+  },
+  "closed_set_synthetic": {
+    "eer": 0.001880449366895679,
+    "rank1": 0.99976,
+    "n_ids": 2500
+  },
+  "tstr": {
+    "real_train": {
+      "eer": 0.01141668714240582,
+      "rank1": 0.9929270946681176,
+      "eer_cross_state": 0.01752637049912238,
+      "rank1_cross_state": 0.9830956154252509
+    },
+    "synthetic_only": {
+      "eer": 0.015593737933939412,
+      "rank1": 0.9918389553862894,
+      "eer_cross_state": 0.02338837482746283,
+      "rank1_cross_state": 0.9799260433174855
+    },
+    "real+synthetic": {
+      "eer": 0.01444417143458879,
+      "rank1": 0.9923830250272034,
+      "eer_cross_state": 0.021420172792801992,
+      "rank1_cross_state": 0.9778129952456418
+    }
+  },
+  "fidelity": {
+    "mean_abs_err": 0.028285617008805275,
+    "std_ratio": 1.0022964477539062,
+    "mse_means": 0.0009572646813467145,
+    "mse_correlation": 0.00019303207872322606,
+    "frechet_syn_vs_train": 0.8943313373857933,
+    "frechet_unseen_real_vs_train(ref)": 12.072550979281063,
+    "discriminator_auc": 0.5061385,
+    "between_person_var_share_real": 0.7125496864318848,
+    "between_person_var_share_syn": 0.7020232081413269
+  },
+  "state_task": {
+    "xgb_acc_real->real": 0.7601195327356697,
+    "xgb_acc_syn->real(TSTR)": 0.7894593860364032,
+    "xgb_acc_combined->real": 0.7927193697364846,
+    "shap_top10_similarity": 0.6,
+    "shap_top10_original": [
+      "Iz_ALPHA",
+      "Po8_ALPHA",
+      "T8_GAMMA",
+      "Af8_GAMMA",
+      "O2_ALPHA",
+      "F3_GAMMA",
+      "Af7_BETA",
+      "Fpz_GAMMA",
+      "O1_ALPHA",
+      "F6_GAMMA"
+    ],
+    "shap_top10_synthetic": [
+      "Iz_ALPHA",
+      "O2_ALPHA",
+      "Po8_ALPHA",
+      "Af8_GAMMA",
+      "T8_GAMMA",
+      "Ft8_THETA",
+      "Po4_ALPHA",
+      "O1_ALPHA",
+      "Af7_GAMMA",
+      "Ft8_BETA"
+    ]
+  },
+  "privacy": {
+    "nn_dist_to_real_over_real_median": 0.9920888543128967,
+    "min_nn_dist_to_real_over_real_median": 0.6695289611816406,
+    "frac_closer_than_closest_real_pair": 0.0,
+    "reid_rate_vs_real_train": 0.0,
+    "reid_threshold": 0.988918222827364
+  },
+  "model": "Copula",
+  "n_identities": 2500,
+  "n_windows": 100000,
+  "train_subjects": 75,
+  "test_subjects": 32,
+  "fit_seconds": 1.8,
+  "sample_seconds": 9.2,
+  "total_seconds": 266.9
+}

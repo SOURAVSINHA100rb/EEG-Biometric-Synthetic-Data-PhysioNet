@@ -1,0 +1,93 @@
+{
+  "closed_set_real": {
+    "eer": 0.003740743085005404,
+    "rank1": 0.9962529274004683,
+    "n_ids": 75
+  },
+  "closed_set_synthetic_same_size": {
+    "eer": 0.0,
+    "rank1": 1.0,
+    "n_ids": 75
+  },
+  "closed_set_synthetic": {
+    "eer": 0.0012361392504688599,
+    "rank1": 1.0,
+    "n_ids": 2500
+  },
+  "tstr": {
+    "real_train": {
+      "eer": 0.01141668714240582,
+      "rank1": 0.9929270946681176,
+      "eer_cross_state": 0.01752637049912238,
+      "rank1_cross_state": 0.9830956154252509
+    },
+    "synthetic_only": {
+      "eer": 0.01862999754291131,
+      "rank1": 0.984766050054407,
+      "eer_cross_state": 0.03176388391868172,
+      "rank1_cross_state": 0.9603803486529319
+    },
+    "real+synthetic": {
+      "eer": 0.01730492470778197,
+      "rank1": 0.985310119695321,
+      "eer_cross_state": 0.02691580185062114,
+      "rank1_cross_state": 0.965662968832541
+    }
+  },
+  "fidelity": {
+    "mean_abs_err": 0.0314018540084362,
+    "std_ratio": 0.976844310760498,
+    "mse_means": 0.0011811824515461922,
+    "mse_correlation": 0.00029966682469049143,
+    "frechet_syn_vs_train": 3.2213464218241428,
+    "frechet_unseen_real_vs_train(ref)": 12.072550979281063,
+    "discriminator_auc": 0.5352515,
+    "between_person_var_share_real": 0.7125496864318848,
+    "between_person_var_share_syn": 0.7286298871040344
+  },
+  "state_task": {
+    "xgb_acc_real->real": 0.7601195327356697,
+    "xgb_acc_syn->real(TSTR)": 0.787014398261342,
+    "xgb_acc_combined->real": 0.7902743819614235,
+    "shap_top10_similarity": 0.6,
+    "shap_top10_original": [
+      "Iz_ALPHA",
+      "Po8_ALPHA",
+      "T8_GAMMA",
+      "Af8_GAMMA",
+      "O2_ALPHA",
+      "F3_GAMMA",
+      "Af7_BETA",
+      "Fpz_GAMMA",
+      "O1_ALPHA",
+      "F6_GAMMA"
+    ],
+    "shap_top10_synthetic": [
+      "O2_ALPHA",
+      "Iz_ALPHA",
+      "Po8_ALPHA",
+      "Af8_GAMMA",
+      "T8_GAMMA",
+      "O1_ALPHA",
+      "Po4_ALPHA",
+      "Po7_ALPHA",
+      "Ft8_THETA",
+      "Cp2_GAMMA"
+    ]
+  },
+  "privacy": {
+    "nn_dist_to_real_over_real_median": 0.9920888543128967,
+    "min_nn_dist_to_real_over_real_median": 0.6695289611816406,
+    "frac_closer_than_closest_real_pair": 0.0,
+    "reid_rate_vs_real_train": 0.0,
+    "reid_threshold": 0.988918222827364
+  },
+  "model": "LSTM",
+  "n_identities": 2500,
+  "n_windows": 100000,
+  "train_subjects": 75,
+  "test_subjects": 32,
+  "fit_seconds": 1696.6,
+  "sample_seconds": 115.7,
+  "total_seconds": 2374.1
+}

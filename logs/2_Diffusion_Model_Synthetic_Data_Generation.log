@@ -1,0 +1,45 @@
+Excluding subjects with < 10 clean windows in a state: [22, 96]
+
+=== Diffusion | PhysioNet EEGMMIDB | 320 features | 75 train subjects (8600 windows), 32 unseen test subjects ===
+Identity model: 32-dim codes explain 96.9% of between-person prototype variance
+  [Diffusion] epoch    1/300  mse=0.9135  (3s)
+  [Diffusion] epoch   30/300  mse=0.4115  (92s)
+  [Diffusion] epoch   60/300  mse=0.3816  (183s)
+  [Diffusion] epoch   90/300  mse=0.3692  (279s)
+  [Diffusion] epoch  120/300  mse=0.3655  (362s)
+  [Diffusion] epoch  150/300  mse=0.3579  (453s)
+  [Diffusion] epoch  180/300  mse=0.3584  (542s)
+  [Diffusion] epoch  210/300  mse=0.3467  (639s)
+  [Diffusion] epoch  240/300  mse=0.3450  (721s)
+  [Diffusion] epoch  270/300  mse=0.3419  (808s)
+  [Diffusion] epoch  300/300  mse=0.3452  (895s)
+Generated 100000 windows = 2500 identities x 2 states x 20 (fit 898s, sampling 1169s)
+Saved /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/Diffusion/Diffusion_Synthetic_EEG_2500_Identities.csv
+
+Evaluating ...
+
+========================================================================
+ Diffusion - results
+========================================================================
+ Biometric quality (closed set; LDA on 1st half of each recording, enrol/probe on 2nd half)
+   real train subjects        n=   75  EER   0.37%  rank-1  99.63%
+   synthetic (same #ids)      n=   75  EER   0.01%  rank-1 100.00%
+   synthetic (all ids)        n= 2500  EER   0.07%  rank-1  99.99%
+ Utility on 32 UNSEEN real subjects (LDA embedding trained on ...)
+   real_train       EER   1.14% rank-1  99.29% | cross-state EO->EC: EER   1.75% rank-1  98.31%
+   synthetic_only   EER   1.36% rank-1  98.97% | cross-state EO->EC: EER   2.24% rank-1  97.62%
+   real+synthetic   EER   1.51% rank-1  99.13% | cross-state EO->EC: EER   2.22% rank-1  97.73%
+ Fidelity
+   discriminator AUC real-vs-syn 0.603 (0.5 = indistinguishable)
+   Frechet dist syn 31.17 | unseen-real-people reference 12.07
+   MSE means 0.0012 | MSE correlations 0.0044 | std ratio 1.232
+   between-person variance share real 0.713 | syn 0.512
+ Eyes-open vs eyes-closed XGBoost (tested on unseen real subjects)
+   real  76.01% | synthetic  74.90% | combined  78.13%
+   SHAP top-10 feature similarity 50%
+ Privacy
+   median NN distance to a real person = 0.99 x real-real median
+   synthetic ids closer than the closest real pair:   0.00%
+   re-identified as a real training subject:         0.00%
+
+Total runtime: 2316 s.  Outputs in /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/Diffusion

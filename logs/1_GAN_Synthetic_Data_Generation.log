@@ -1,0 +1,45 @@
+Excluding subjects with < 10 clean windows in a state: [22, 96]
+
+=== GAN | PhysioNet EEGMMIDB | 320 features | 75 train subjects (8600 windows), 32 unseen test subjects ===
+Identity model: 32-dim codes explain 96.9% of between-person prototype variance
+  [GAN] epoch    1/300  W=0.6509  (2s)
+  [GAN] epoch   30/300  W=4.9757  (63s)
+  [GAN] epoch   60/300  W=4.0858  (122s)
+  [GAN] epoch   90/300  W=3.3213  (181s)
+  [GAN] epoch  120/300  W=2.9849  (239s)
+  [GAN] epoch  150/300  W=2.8889  (300s)
+  [GAN] epoch  180/300  W=2.8796  (358s)
+  [GAN] epoch  210/300  W=2.8507  (417s)
+  [GAN] epoch  240/300  W=2.8289  (474s)
+  [GAN] epoch  270/300  W=2.8077  (533s)
+  [GAN] epoch  300/300  W=2.8905  (590s)
+Generated 100000 windows = 2500 identities x 2 states x 20 (fit 592s, sampling 2s)
+Saved /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/GAN/GAN_Synthetic_EEG_2500_Identities.csv
+
+Evaluating ...
+
+========================================================================
+ GAN - results
+========================================================================
+ Biometric quality (closed set; LDA on 1st half of each recording, enrol/probe on 2nd half)
+   real train subjects        n=   75  EER   0.37%  rank-1  99.63%
+   synthetic (same #ids)      n=   75  EER   0.00%  rank-1 100.00%
+   synthetic (all ids)        n= 2500  EER   0.13%  rank-1 100.00%
+ Utility on 32 UNSEEN real subjects (LDA embedding trained on ...)
+   real_train       EER   1.14% rank-1  99.29% | cross-state EO->EC: EER   1.75% rank-1  98.31%
+   synthetic_only   EER   1.38% rank-1  99.13% | cross-state EO->EC: EER   2.41% rank-1  97.15%
+   real+synthetic   EER   1.49% rank-1  99.29% | cross-state EO->EC: EER   2.28% rank-1  97.31%
+ Fidelity
+   discriminator AUC real-vs-syn 0.814 (0.5 = indistinguishable)
+   Frechet dist syn 1.30 | unseen-real-people reference 12.07
+   MSE means 0.0020 | MSE correlations 0.0003 | std ratio 1.003
+   between-person variance share real 0.713 | syn 0.713
+ Eyes-open vs eyes-closed XGBoost (tested on unseen real subjects)
+   real  76.01% | synthetic  78.97% | combined  79.14%
+   SHAP top-10 feature similarity 60%
+ Privacy
+   median NN distance to a real person = 0.99 x real-real median
+   synthetic ids closer than the closest real pair:   0.00%
+   re-identified as a real training subject:         0.00%
+
+Total runtime: 856 s.  Outputs in /home/sourav/DHC_PROJECT/project_nov18/Synthetic-Data-Generation-Algorithms/Outputs/GAN
