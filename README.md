@@ -172,7 +172,7 @@ Options common to all generator scripts:
 Everything runs on CPU. On an 8-core laptop, Copula takes about 5 min including evaluation, VAE about 6, GAN about 15, LSTM about 40 and Diffusion about 40.
 
 The generated datasets (CSV about 230 MB, NPZ about 115 MB per model) exceed GitHub's 100 MB file
-limit, so they are not stored in git. The `.npz` files are attached to the repository's **Releases**
+limit, so they are not stored in git. Both formats (`.npz`, and the CSV as `*_csv.zip`) are attached to the repository's **Releases**
 page; you can also regenerate them with the scripts. Load one with:
 ```python
 import numpy as np
